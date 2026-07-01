@@ -163,14 +163,6 @@ config:
       - work-dir: "core-services/egov-localization/src/main/resources/db"
         image-name: "egov-localization-db"
 
-  - name: "builds/upyog/core-services/egov-location"
-    build:
-      - work-dir: "core-services/egov-location"
-        image-name: "egov-location"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/egov-location/src/main/resources/db"
-        image-name: "egov-location-db"
-
   - name: "builds/upyog/core-services/egov-mdms-service"
     build:
       - work-dir: "core-services/egov-mdms-service"
@@ -202,6 +194,7 @@ config:
       - work-dir: "core-services/egov-persister"
         image-name: "egov-persister"
         dockerfile: "build/maven/Dockerfile"
+
 
   - name: "builds/upyog/core-services/egov-searcher"
     build:
@@ -668,6 +661,15 @@ config:
         dockerfile: 'build/maven/Dockerfile'
       - work-dir: 'municipal-services/pqm-anomaly-finder/src/main/resources/db'
         image-name: 'pqm-anomaly-finder-db'
+        
+  - name: 'builds/upyog/municipal-services/cnd-calculator'
+    build:
+      - work-dir: 'municipal-services/cnd-calculator'
+        image-name: 'cnd-calculator'
+        dockerfile: 'build/maven/Dockerfile'
+    #  - work-dir: 'municipal-services/cnd-calculator/src/main/resources/db'
+    #    image-name: 'cnd-calculator-db'
+ # Utilities
  
   - name: "builds/upyog/utilities/egov-weekly-impact-notifier"
     build:
@@ -801,7 +803,7 @@ config:
   - name: builds/upyog/frontend/micro-ui/workbench-ui
     build:
       - work-dir: frontend/workbench-ui/
-        dockerfile: frontend/workbench-ui/web/docker/Dockerfile
+        dockerfile: frontend/workbench-ui/web/workbench/Dockerfile
         image-name: workbench-ui
   - name: builds/upyog/frontend/micro-ui/tqm-ui
     build:
@@ -865,7 +867,7 @@ config:
     build:
       - work-dir: dx-services/requester-services-dx
         image-name: requester-services-dx
-        dockerfile: build/maven/Dockerfile
+        dockerfile: dx-services/requester-services-dx/Dockerfile
 
   - name: "builds/upyog/utilities/apply-workflow"
     build:
@@ -873,7 +875,7 @@ config:
         image-name: "apply-workflow"
         dockerfile: "build/maven/Dockerfile"
         
-  - name: "builds/upyog/municipal-services/adv-services"
+  - name: "builds/upyog/municipal-services/advertisement-service"
     build:
       - work-dir: "municipal-services/advertisement-service"
         image-name: "adv-services"
@@ -930,12 +932,6 @@ config:
         dockerfile: "build/maven/Dockerfile"  
       - work-dir: "municipal-services/asset-calculator/src/main/resources/db"
         image-name: "asset-calculator-db" 
-
-  - name: builds/upyog/frontend/cnd-ui
-    build:
-      - work-dir: frontend/cnd-ui/
-        dockerfile: frontend/cnd-ui/web/docker/Dockerfile
-        image-name: cnd-ui 
   
   - name: "builds/upyog/municipal-services/cnd-service"
     build:
@@ -944,14 +940,6 @@ config:
         dockerfile: "build/maven/Dockerfile"
       - work-dir: "municipal-services/cnd-service/src/main/resources/db"
         image-name: "cnd-service-db"
-
-  - name: 'builds/upyog/municipal-services/cnd-calculator'
-    build:
-      - work-dir: 'municipal-services/cnd-calculator'
-        image-name: 'cnd-calculator'
-        dockerfile: 'build/maven/Dockerfile'
-      - work-dir: "municipal-services/cnd-calculator/src/main/resources/db"
-        image-name: "cnd-calculate-db"
         
   - name: 'builds/upyog/municipal-services/pgr-ai-services'
     build:
@@ -959,7 +947,7 @@ config:
         image-name: 'pgr-ai-services'
         dockerfile: 'build/maven/Dockerfile'
       - work-dir: "municipal-services/pgr-ai-services/src/main/resources/db"
-        image-name: "pgr-ai-services-db"
+        image-name: "pgr-ai-services-db"      
 
   - name: "builds/upyog/municipal-services/tp-services"
     build:
@@ -968,6 +956,8 @@ config:
         dockerfile: "build/maven/Dockerfile"
       - work-dir: "municipal-services/tp-services/src/main/resources/db"
         image-name: "tp-services-db"
+
+ 
 
   - name: "builds/upyog/municipal-services/request-service"
     build:
@@ -984,33 +974,7 @@ config:
         dockerfile: "build/maven/Dockerfile"  
       - work-dir: "municipal-services/vendor-management/src/main/resources/db"
         image-name: "vendor-management-db" 
-
-  - name: "builds/upyog/municipal-services/estate-management"
-    build:
-      - work-dir: "municipal-services/estate-management"
-        image-name: "estate-management"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "municipal-services/estate-management/src/main/resources/db"
-        image-name: "estate-management-db"
   
-
-  - name: "builds/upyog/municipal-services/challan-generation"
-    build:
-      - work-dir: "municipal-services/challan-generation"
-        image-name: "challan-generation"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "municipal-services/challan-generation/src/main/resources/db"
-        image-name: "challan-generation-db"
-
-
-  - name: "builds/upyog/municipal-services/challan-generation-calculator"
-    build:
-      - work-dir: "municipal-services/challan-generation-calculator"
-        image-name: "challan-generation-calculator"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "municipal-services/challan-generation-calculator/src/main/resources/db"
-        image-name: "challan-generation-calculator-db"
-
   - name: "builds/upyog/municipal-services/ndc-services"
     build:
       - work-dir: "municipal-services/ndc-services"
@@ -1026,9 +990,4 @@ config:
         dockerfile: "build/maven/Dockerfile"
       - work-dir: "municipal-services/ndc-calculator/src/main/resources/db"
         image-name: "ndc-calculator-db"
-        
-  - name: "builds/upyog/upyog-voice-bot"
-    build:
-      - work-dir: "upyog-voice-bot"
-        image-name: "upyog-voice-bot"
-        dockerfile: "upyog-voice-bot/Dockerfile"
+ 
