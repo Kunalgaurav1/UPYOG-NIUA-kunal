@@ -245,8 +245,6 @@ public class VoucherService extends PersistenceService<CVoucherHeader, Long> {
 		return assignment.getDepartment();
 	}
 
-	sldkjflskdjfl
-
 	public Department getDepartmentForWfItem(final CVoucherHeader cv) {
 		final Assignment assignment = eisCommonService.getLatestAssignmentForEmployeeByDate(cv.getCreatedBy(),
 				new Date());
