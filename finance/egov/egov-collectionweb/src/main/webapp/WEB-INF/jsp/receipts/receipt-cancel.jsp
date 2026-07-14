@@ -1,4 +1,4 @@
-
+﻿
 <%--
   ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
   ~    accountability and the service delivery of the government  organizations.
@@ -48,7 +48,7 @@
   --%>
 
 <%@ include file="/includes/taglibs.jsp" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

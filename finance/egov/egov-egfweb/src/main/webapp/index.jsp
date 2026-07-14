@@ -1,4 +1,4 @@
- <%--
+﻿ <%--
   ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
   ~    accountability and the service delivery of the government  organizations.
   ~
@@ -48,5 +48,5 @@
 
 
 <%@page session="false" %> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <c:redirect context="/egi" url="/login/secure"></c:redirect>

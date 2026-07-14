@@ -1,4 +1,4 @@
-<%--
+﻿<%--
   ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
   ~    accountability and the service delivery of the government  organizations.
   ~
@@ -48,7 +48,7 @@
 
 
 <%@ taglib prefix="s" uri="/WEB-INF/tags/struts-tags.tld"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <style>
   :focus { outline: 1px solid rgba(81, 203, 238, 1);
   box-shadow: 0 0 5px rgba(81, 203, 238, 1); }

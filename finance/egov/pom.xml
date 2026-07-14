@@ -168,7 +168,10 @@
         <hibernate-validator-version>8.0.1.Final</hibernate-validator-version>
         <jakarta-validation-version>3.0.2</jakarta-validation-version>
         <jakarta-servlet-api-version>6.0.0.Final</jakarta-servlet-api-version>
-        <jakarta-servlet-jstl-version>1.2.6-RC1</jakarta-servlet-jstl-version>
+        <!-- Upgraded from org.apache.taglibs:taglibs-standard-* 1.2.6-RC1 (javax.* namespace, JSTL 1.2)
+             to org.glassfish.web:jakarta.servlet.jsp.jstl 2.0.0 (jakarta.* namespace, JSTL 2.0)
+             Required for Jakarta EE 9+ / JDK 17. Single JAR replaces compat + spec + impl. -->
+        <jakarta-jstl-version>2.0.0</jakarta-jstl-version>
         <jakarta-servlet-jsp-version>1.0.1.Final</jakarta-servlet-jsp-version>
         <jakarta-jms-version>1.0.1.Final</jakarta-jms-version>
         <jakarta-mail-version>1.5.6</jakarta-mail-version>
@@ -361,22 +364,12 @@
                 <version>6.0.0</version>
                 <scope>provided</scope>
             </dependency>
+            <!-- JSTL 2.0 implementation for Jakarta EE 9+ / JDK 17
+                 Replaces all three taglibs-standard-compat/spec/impl artifacts -->
             <dependency>
-                <groupId>org.apache.taglibs</groupId>
-                <artifactId>taglibs-standard-compat</artifactId>
-                <version>${jakarta-servlet-jstl-version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.taglibs</groupId>
-                <artifactId>taglibs-standard-spec</artifactId>
-                <version>${jakarta-servlet-jstl-version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.taglibs</groupId>
-                <artifactId>taglibs-standard-impl</artifactId>
-                <version>${jakarta-servlet-jstl-version}</version>
+                <groupId>org.glassfish.web</groupId>
+                <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+                <version>${jakarta-jstl-version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -1132,16 +1125,8 @@
 <!--            <artifactId>jboss-servlet-api_3.1_spec</artifactId>-->
 <!--        </dependency>-->
         <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-compat</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-spec</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-impl</artifactId>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>org.jboss.spec.jakarta.servlet.jsp</groupId>-->
